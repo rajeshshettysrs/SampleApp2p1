@@ -1,0 +1,10 @@
+pipeline {
+    agent { docker { image 'ruby' } }
+    stages {
+        stage('build') {
+            steps {
+                sh 'dotnet build ".\SampleApp2p1\SampleApp2p1.sln" --configuration Release --runtime ubuntu.18.04-x64'
+            }
+        }
+    }
+}
